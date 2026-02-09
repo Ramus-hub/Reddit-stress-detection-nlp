@@ -1,50 +1,45 @@
 # Reddit Stress Detection Using NLP
 
-This repository explores how stress is expressed in Reddit posts and whether stressed content can be identified using data mining and natural language processing techniques. The project analyzes text-based signals such as emotional language, sentiment indicators, and user engagement patterns to understand how stress appears in online discussions.
+## Project Description
 
-The motivation behind this work is that people often express stress online before seeking help offline. By studying these signals at scale, the project aims to uncover recurring patterns while remaining explicit about the limitations and ethical risks of automated emotional inference.
+This project examines how stress is expressed in Reddit posts and whether stress-related content can be identified using natural language processing and data mining techniques. The analysis focuses on text-based signals such as emotional language, sentiment cues, and engagement patterns. The goal is not to diagnose individuals, but to study recurring patterns of stress expression in online discussions and understand the limitations and risks of automated emotional inference.
 
-## Project Scope
+The project is limited to Reddit data and explicitly acknowledges platform-specific bias, informal language, and the challenges of interpreting mental states from text alone.
 
-The project focuses exclusively on Reddit data and does not attempt to make clinical or diagnostic claims. Stress detection is treated as a probabilistic classification task based on language patterns, not as an assessment of mental health conditions.
+## Team Members
 
-Key goals include:
-- Exploring linguistic and emotional markers associated with stress
-- Applying classification and clustering techniques to text data
-- Identifying common themes in stress-related posts
-- Evaluating model confidence and uncertainty
+- Rajeshwar Rengeswaran
+- Tejas Prakash Naik  
+- Chushmitha Battula  
+- Ramu Kambala  
 
-## Data Sources
+## Milestone Outline
 
-- **Dreaddit Dataset (Hugging Face)**  
-  A labeled dataset of Reddit posts annotated for stress-related content, containing text and lexical emotion features.
+### Milestone 0: Project Proposal
+- Define the problem and motivation
+- Identify data sources and scope
+- Discuss potential bias, ethical concerns, and limitations
 
-- **Reddit API (PRAW)**  
-  Additional posts and comments collected directly from Reddit using the official API, including subreddit context and engagement metrics such as score.
+### Milestone 1: Data Collection and Exploration
+- Load and clean Reddit datasets
+- Perform exploratory data analysis
+- Examine text length, sentiment indicators, and class distribution
 
-All data used in this project is publicly available and text-only.
+### Milestone 2: Feature Engineering and Modeling
+- Extract text-based features (e.g., lexical, sentiment, TF-IDF)
+- Apply classification and clustering methods
+- Compare model performance and confidence levels
 
-## Stakeholders and Impact
+### Milestone 3: Evaluation and Interpretation
+- Analyze results and error cases
+- Identify common stress-related themes
+- Assess model limitations and failure modes
 
-This project affects multiple groups:
-- Reddit users whose posts are analyzed, often written without the expectation of automated interpretation
-- Moderators and platform operators who may use similar tools to triage content
-- Researchers and data scientists studying large-scale online behavior
-- Indirect readers who encounter Reddit content through search engines
-- Users of AI-powered search and assistant systems that reuse Reddit data in summarized form
+### Milestone 4: Final Report and Presentation
+- Summarize findings and insights
+- Discuss real-world implications and downstream impact
+- Present results and recommendations
 
-Because Reddit content often reaches far beyond the platform itself, errors or bias introduced during analysis can propagate through downstream systems. For this reason, transparency and scope limitation are core design principles of this work.
+## Disclaimer
 
-## Limitations and Bias
-
-- Reddit users are not representative of the general population
-- Language patterns are platform-specific and culturally dependent
-- Text-only analysis cannot capture tone, sarcasm, or non-verbal cues reliably
-- Models may confuse venting or humor with genuine stress
-- Results are time-dependent and may reflect short-term events
-
-Predictions with low confidence are treated as uncertain rather than forced into binary labels.
-
-## Ethical Considerations
-
-This project does not attempt to diagnose individuals or provide mental health advice. Outputs should be interpreted as exploratory signals, not ground truth. Any real-world deployment would require safeguards, disclaimers, and human oversight.
+This project is for academic and research purposes only. All findings apply only to Reddit data and should not be interpreted as medical or psychological diagnoses.
