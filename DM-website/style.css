@@ -1,0 +1,98 @@
+body {
+    margin: 0;
+    background-color: #FFFFFF;
+    font-family: Poppins;
+    color: #000;
+}
+
+.navigation{
+    padding: 15px 30px;
+}
+
+.navigation div{
+    display: flex;
+    gap: 15px
+}
+
+.navigation a{
+    color: black;
+    text-decoration: none;
+    background-color: #CFB87C;
+    padding: 5px 5px;
+}
+
+.navigation a.active{
+    background-color: #B59410;
+}
+
+.index_main{
+    display: flex;
+}
+
+.index_main_left{
+    width: 30%;
+    margin: 10px;
+    align-items: center;
+    padding: 250px 0
+}
+
+.index_main_right{
+    width: 70%
+}
+
+.index_main_right img{
+    width: 950px;
+    height: 600px
+}
+
+.index_main_right figcaption{
+    text-align: right;
+    font-size: 10px;
+}
+
+.introduction{
+    margin: 20px;
+}
+
+.intro_fig{
+    float: left;
+    width: 30%
+}
+
+.intro_fig img{
+    width: 100%;
+    margin-bottom: 10px
+}
+
+.proposal{
+    margin: 15px
+}
+
+.team{
+    margin: 15px
+}
+
+.team_grid{
+    width: 800px;
+    height: 500px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+    margin: 0 auto;
+}
+
+.team_member{
+    background-color: #CFB87C;
+    border-left: #B59410;
+    padding: 10px;
+    box-sizing: border-box;
+    min-height: 320px
+}
+
+.team_member img{
+    float:left;
+    width: 100px;
+    height: 110px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
