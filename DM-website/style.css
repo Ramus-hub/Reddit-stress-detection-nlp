@@ -11,7 +11,8 @@ body {
 
 .navigation div{
     display: flex;
-    gap: 15px
+    gap: 15px;
+
 }
 
 .navigation a{
