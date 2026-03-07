@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Exploration</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav class="navigation">
+<div>
+<a href="index.html">Home</a>
+<a href="introduction.html">Introduction</a>
+<a href="proposal.html">Proposal</a>
+<a href="team.html">Team</a>
+<a class="active" href="data_exploration.html">Data Exploration</a>
+</div>
+</nav>
+
+<hr>
+
+<section class="data_exploration">
+
+<h2><b>Data Exploration</b></h2>
+
+<p>
+Our data exploration process involves acquiring, cleaning, preprocessing, and visualizing data to prepare it for modeling and analysis. Please click on each button to explore further.
+</p>
+
+<div class="exploration_grid">
+
+<div class="exploration_box" onclick="openPopup('acquisitionPopup')">
+<h3>Data Acquisition</h3>
+</div>
+
+<div class="exploration_box" onclick="openPopup('cleaningPopup')">
+<h3>Data Cleaning and Preprocessing</h3>
+</div>
+
+<div class="exploration_box" onclick="openPopup('visualizationPopup')">
+<h3>Data Visualization</h3>
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+<div id="acquisitionPopup" class="popup_overlay">
+
+<div class="popup_content">
+
+<span class="close_btn" onclick="closePopup('acquisitionPopup')">&times;</span>
+
+<h2>Data Acquisition</h2>
+
+<p>
+The data used in this project was collected from multiple publicly available Reddit-based mental health datasets hosted on the Hugging Face dataset repository, along with a live Reddit dataset collected through an API.
+</p>
+
+<p><b>The following datasets were used in this study:</b></p>
+
+<ul>
+<li><b>Dreaddit Dataset (andreagasparini/dreaddit)</b> – The dataset is designed for stress detection research.</li>
+
+<li><b>Reddit Mental Health Posts Dataset (solomonk/reddit_mental_health_posts)</b> – Dataset contains Reddit posts from various mental health communities.</li>
+
+<li><b>SWMH Dataset (AIMH/SWMH)</b> – A social media mental health dataset consisting of posts related to psychological well-being.</li>
+
+<li><b>Reddit Depression Cleaned Dataset (hugginglearners/reddit-depression-cleaned)</b> – A cleaned Reddit dataset focusing on depression-related discussions.</li>
+
+<li><b>Live Reddit Dataset</b> – Collected using the Arctic Shift Reddit API from the subreddits r/anxiety, r/depression, r/ptsd, r/stress, and r/relationships to provide recent and unlabeled posts for testing.</li>
+</ul>
+
+<h3>Dataset Overview</h3>
+
+<p><b>Dreaddit Dataset</b></p>
+<p>
+Records: ~3,500 posts <br>
+Features: text, subreddit, label <br>
+Purpose: labeled dataset for stress classification research.
+</p>
+
+<p><b>Reddit Mental Health Posts Dataset</b></p>
+<p>
+Records: ~150,000 posts <br>
+Features: post text and subreddit metadata <br>
+Purpose: large collection of mental health related Reddit discussions.
+</p>
+
+<p><b>SWMH Dataset</b></p>
+<p>
+Records: ~50,000 posts <br>
+Features: textual posts and mental health related labels <br>
+Purpose: social media mental health analysis dataset.
+</p>
+
+<p><b>Reddit Depression Cleaned Dataset</b></p>
+<p>
+Records: ~7,000 posts <br>
+Features: cleaned Reddit posts focused on depression discussions <br>
+Purpose: depression related language patterns.
+</p>
+
+<p><b>Live Reddit Dataset</b></p>
+<p>
+Records: ~102,000 posts <br>
+Features: id, title, text, subreddit, author, score, number of comments, timestamp <br>
+Purpose: unlabeled dataset collected from Reddit communities for testing and validating the preprocessing and modeling pipeline.
+</p>
+
+</div>
+
+</div>
+
+
+
+
+
+<div id="cleaningPopup" class="popup_overlay">
+
+<div class="popup_content">
+
+<span class="close_btn" onclick="closePopup('cleaningPopup')">&times;</span>
+
+<h2>Data Cleaning and Preprocessing</h2>
+
+<p>The flow below outlines each major step performed during the data preparation stage.</p>
+
+<img src="images/workflow.jpeg">
+
+<h3>Data Before and After Processing</h3>
+
+<h4>Before</h4>
+<img src="images/data_before.jpeg">
+
+<h4>After</h4>
+<img src="images/data_after.jpeg">
+
+</div>
+
+</div>
+
+
+
+
+
+<div id="visualizationPopup" class="popup_overlay">
+
+<div class="popup_content">
+
+<span class="close_btn" onclick="closePopup('visualizationPopup')">&times;</span>
+
+<h2>Data Visualization</h2>
+
+<h3>Box-Plots before Removing the outliers</h3>
+
+<h4>Before</h4>
+<img src="images/boxplot_before.jpeg">
+
+<h4>After</h4>
+<img src="images/boxplot_after.jpeg">
+
+
+<h3>Correlation Matrix before Transformation</h3>
+
+<h4>Before</h4>
+<img src="images/corr_before.jpeg">
+
+<h4>After</h4>
+<img src="images/corr_after.jpeg">
+
+
+<h3>Distribution of Text length before and after transformation</h3>
+
+<h4>Before</h4>
+<img src="images/dist_before.jpeg">
+
+<h4>After</h4>
+<img src="images/dist_after.jpeg">
+
+
+<h3>Q-Q plot for Text and Word Lenght</h3>
+
+<h4>Text</h4>
+<img src="images/Q-Q_text.jpeg">
+
+<h4>Word</h4>
+<img src="images/Q-Q_word.jpeg">
+
+
+<h3>Label Distribution</h3>
+
+<img src="images/dist_label.jpeg">
+
+
+<h3>Word cloud for Stress and Non-stress Data</h3>
+
+<h4>Stress Data</h4>
+<img src="images/wc_stress.jpeg">
+
+<h4>Non Stress Data</h4>
+<img src="images/wc_nonstress.jpeg">
+
+</div>
+
+</div>
+
+
+
+<script>
+
+function openPopup(popupId) {
+document.getElementById(popupId).style.display = "block";
+}
+
+function closePopup(popupId) {
+document.getElementById(popupId).style.display = "none";
+}
+
+window.onclick = function(event) {
+
+let popups = document.getElementsByClassName("popup_overlay");
+
+for (let i = 0; i < popups.length; i++) {
+
+if (event.target == popups[i]) {
+popups[i].style.display = "none";
+}
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
