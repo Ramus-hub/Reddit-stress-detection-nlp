@@ -1,0 +1,28 @@
+# Requirements for Reddit Stress Detection NLP
+# Generated from Milestone_2 notebook imports
+# Install with: pip install -r requirements.txt
+
+# Core data science
+pandas>=2.0.0
+numpy>=1.24.0
+scipy>=1.10.0
+
+# HuggingFace
+datasets>=2.14.0
+huggingface_hub>=0.16.0
+pyarrow>=12.0.0
+
+# NLP
+nltk>=3.8.1
+wordcloud>=1.9.2
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Reddit scraping (Arctic Shift)
+requests>=2.31.0
+
+# Notebook
+ipykernel>=6.0.0
+jupyter>=1.0.0
