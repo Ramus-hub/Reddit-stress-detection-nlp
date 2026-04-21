@@ -44,10 +44,7 @@ The project is limited to Reddit data and explicitly acknowledges platform-speci
 - Step 1 — Install dependencies: bashpip install -r requirements.txt
 - Step 2 — Generate the dataset: Open and run milestone_2.ipynb from top to bottom. This will produce the cleaned_data_set.csv file.
 - Step 3 — Run the analysis notebooks: Once cleaned_data_set.csv is generated, run the following notebooks in any order:
-        classification.ipynb
-        regression.ipynb
-        clustering.ipynb
-        fpgrowth.ipynb
+        classification.ipynb, regression.ipynb, clustering.ipynb, fpgrowth.ipynb
 
 Make sure cleaned_data_set.csv is in the same folder as the notebooks before running them.
 
