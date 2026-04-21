@@ -43,8 +43,10 @@ The project is limited to Reddit data and explicitly acknowledges platform-speci
 ### How to Run the Code
 Step 1 — Install dependencies
 bashpip install -r requirements.txt
+
 Step 2 — Generate the dataset
 Open and run milestone_2.ipynb from top to bottom. This will produce the cleaned_data_set.csv file.
+
 Step 3 — Run the analysis notebooks
 Once cleaned_data_set.csv is generated, run the following notebooks in any order:
 
