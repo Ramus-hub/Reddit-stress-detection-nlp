@@ -40,7 +40,7 @@ The project is limited to Reddit data and explicitly acknowledges platform-speci
 - Discuss real-world implications and downstream impact
 - Present results and recommendations
 
-### How to Run the Code
+## How to Run the Code
 Step 1 — Install dependencies
 bashpip install -r requirements.txt
 
