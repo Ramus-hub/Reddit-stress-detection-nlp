@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- This is the Navigational bar -->
+
     <nav class="navigation">
         <div>
             <a class='active' href="index.html">Home</a>
@@ -16,24 +16,49 @@
             <a href="team.html">Team</a>
             <a href="data_exploration.html">Data Exploration</a>
             <a href="models.html">Models Implemented</a>
+            <a href="conclusion.html">Conclusion</a>
         </div>
-    </nav><hr>
- 
-    <!-- This the Main Content -->
-    <section class="index_main">
-        <div class="index_main_left">
-            <h1>Mining Stress Patterns</h1>
-            <p>This Project we aim to examine how stress is expressed in reddit posts and uncover patterns using <b>Data Mining</b> techniques </p>
+    </nav>
+
+    <section class="hero">
+
+        <div class="hero_content">
+            <div class="hero_tag">Data Mining &nbsp;&middot;&nbsp; NLP &nbsp;&middot;&nbsp; Reddit</div>
+            <h1 class="hero_title">Mining <span class="hero_accent">Stress Patterns</span><br>in Reddit</h1>
+            <p class="hero_sub">Examining how stress is expressed in Reddit posts and uncovering hidden patterns using Data Mining techniques across 57,640 posts.</p>
+            <div class="hero_stats">
+                <div class="hero_stat">
+                    <span class="hero_stat_num">57,640</span>
+                    <span class="hero_stat_label">Posts analysed</span>
+                </div>
+                <div class="hero_stat_divider"></div>
+                <div class="hero_stat">
+                    <span class="hero_stat_num">86.8%</span>
+                    <span class="hero_stat_label">Best F1 score</span>
+                </div>
+                <div class="hero_stat_divider"></div>
+                <div class="hero_stat">
+                    <span class="hero_stat_num">4</span>
+                    <span class="hero_stat_label">ML model families</span>
+                </div>
+            </div>
+            <div class="hero_btns">
+                <a href="conclusion.html" class="hero_btn_primary">Explore Findings</a>
+                <a href="models.html" class="hero_btn_secondary">View Models</a>
+            </div>
         </div>
-        <div class="index_main_right">
-            <figure>
-                <img src="images/index_image.png"/>
+
+        <div class="hero_image_wrap">
+            <figure class="hero_figure">
+                <img src="images/index_image.png" alt="Illustration of Mining Patterns from Reddit posts"/>
                 <figcaption>
-                    <b>Illustation of Mining Patterns from Reddit posts</b><br/>
+                    <b>Illustration of Mining Patterns from Reddit posts</b><br/>
                     source: Superchart blog, Grading 5 Visuals From r/dataisbeautiful
                 </figcaption>
             </figure>
         </div>
+
     </section>
+
 </body>
 </html>
