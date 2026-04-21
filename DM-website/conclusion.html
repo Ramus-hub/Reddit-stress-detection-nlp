@@ -75,22 +75,15 @@ Please click on each section to explore further.
 <h2>Summary</h2>
 
 <p>
-We built a system that reads Reddit posts and tries to figure out whether the person writing it is stressed or not - just from their words. Think of it like teaching a computer to read between the lines of what people post online and detect if they're going through a tough time.
+People often share how they feel on Reddit - stress, anxiety, and personal struggles. We wanted to find out if a computer could read those posts and tell whether someone was stressed, just from the words they used.
 </p>
 
 <p>
-We analyzed <b>57,640 Reddit posts</b> using four different types of machine learning approaches, and then compared how well each one worked.
+We looked at over <b>57,000 Reddit posts</b> and used four different approaches to spot patterns in the writing. No personal information was used - just the text.
 </p>
 
-<ul>
-<li><b>Classification</b> - Decision Tree, Linear SVM, k-NN, Naïve Bayes</li>
-<li><b>Regression</b> - Logistic Regression, Ridge Regression</li>
-<li><b>Clustering</b> - K-Means, Hierarchical Agglomerative Clustering</li>
-<li><b>Frequent Pattern Mining</b> - FP-Growth</li>
-</ul>
-
 <p>
-Text features were extracted using TF-IDF, VADER sentiment scores, emotion word counts across five psychological categories (anxiety, depression, anger, somatic, help-seeking), and first-person pronoun ratios. All four model types were then compared to see if they agree on what stress looks like in text.
+We then compared all four approaches to see what they agreed on, and used that to understand what stressed writing actually looks like.
 </p>
 
 </div>
