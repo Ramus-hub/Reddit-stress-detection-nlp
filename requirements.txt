@@ -1,11 +1,17 @@
 # Requirements for Reddit Stress Detection NLP
-# Generated from Milestone_2 notebook imports
+# Generated from all project notebooks (milestone_2, classification, regression, clustering, fpgrowth)
 # Install with: pip install -r requirements.txt
 
 # Core data science
 pandas>=2.0.0
 numpy>=1.24.0
 scipy>=1.10.0
+
+# Machine learning
+scikit-learn>=1.3.0
+
+# Frequent pattern mining
+mlxtend>=0.23.0
 
 # HuggingFace
 datasets>=2.14.0
@@ -15,6 +21,7 @@ pyarrow>=12.0.0
 # NLP
 nltk>=3.8.1
 wordcloud>=1.9.2
+vaderSentiment>=3.3.2
 
 # Visualization
 matplotlib>=3.7.0
