@@ -16,6 +16,7 @@
         <a href="team.html">Team</a>
         <a href="data_exploration.html">Data Exploration</a>
         <a class="active" href="models.html">Models Implemented</a>
+            <a href="conclusion.html">Conclusion</a>
     </div>
 </nav>
 <hr>
@@ -48,19 +49,19 @@
 <div id="fpgrowthPopup" class="popup_overlay">
     <div class="popup_content">
         <span class="close_btn" onclick="closePopup('fpgrowthPopup')">&times;</span>
-        <h2>Frequent Pattern Mining - FP-Growth</h2>
+        <h2>Frequent Pattern Mining — FP-Growth</h2>
  
         <h3>Why This Model Was Chosen</h3>
         <p>
             The dataset contains thousands of unique tokens, making Apriori computationally impractical due to repeated full-database scans.
-            FP-Growth compresses the transaction database into a compact FP-Tree and mines patterns directly from it - significantly faster and
+            FP-Growth compresses the transaction database into a compact FP-Tree and mines patterns directly from it — significantly faster and
             more memory-efficient for large-vocabulary text mining. Applied separately on stressed (52,003 posts) and not-stressed (5,228 posts)
             groups to discover class-specific co-occurrence patterns addressing Research Questions Q1, Q2, and Q7.
         </p>
  
         <h3>Model Assumptions</h3>
         <ul>
-            <li>Each post is treated as a transaction; word presence (not frequency) matters - set-based tokenization used.</li>
+            <li>Each post is treated as a transaction; word presence (not frequency) matters — set-based tokenization used.</li>
             <li>Top 500 most frequent words form the vocabulary to keep the transaction matrix tractable.</li>
             <li>Patterns are meaningful if they co-occur in a minimum fraction of posts (min_support threshold).</li>
         </ul>
@@ -75,15 +76,15 @@
         <h3>Results</h3>
         <p>
             Stressed posts: 507 bigrams, 402 trigrams, 126 four-word, 8 five-word patterns. Top bigrams: {im, like} (26.7%), {im, dont} (25.9%), {feel, like} (24.9%).
-            Not-stressed posts: only bigrams, even at 5× lower support - confirming co-occurrence is a stress-specific signal.
+            Not-stressed posts: only bigrams, even at 5× lower support — confirming co-occurrence is a stress-specific signal.
             FPM features alone achieved AUC-ROC 0.850. Combined with TF-IDF (1,053 features), AUC-ROC jumped to 0.968, accuracy 0.90, macro F1 0.79.
         </p>
  
         <h3>Challenges &amp; Solutions</h3>
         <ul>
-            <li><b>Not-stressed posts yielded zero rules at standard thresholds</b> - support relaxed to 0.01 for that group to enable comparison.</li>
-            <li><b>Large vocabulary (59,316 tokens)</b> - restricted to top 500 most frequent words to keep FP-Tree tractable.</li>
-            <li><b>Severe class imbalance (90:10)</b> - class_weight='balanced' applied in downstream Logistic Regression classifier.</li>
+            <li><b>Not-stressed posts yielded zero rules at standard thresholds</b> — support relaxed to 0.01 for that group to enable comparison.</li>
+            <li><b>Large vocabulary (59,316 tokens)</b> — restricted to top 500 most frequent words to keep FP-Tree tractable.</li>
+            <li><b>Severe class imbalance (90:10)</b> — class_weight='balanced' applied in downstream Logistic Regression classifier.</li>
         </ul>
  
         <h3>Visualizations</h3>
@@ -113,10 +114,10 @@
         <p><b>Why chosen:</b> Interpretable, rule-based, non-parametric. Feature importance directly answers Q2 (what words drive stress detection).</p>
         <p><b>Assumptions:</b> Features can be split with axis-aligned boundaries. No linearity or independence assumption required.</p>
         <p><b>Hyperparameter tuning:</b> GridSearchCV (5-fold, F1 scoring) over max_depth [5,10,15,20,None], min_samples_split [2,5,10,20], min_samples_leaf [1,2,5], criterion [gini, entropy].</p>
-        <p><b>Results:</b> Accuracy 0.7656, F1 0.8410, ROC-AUC 0.7987. Smallest train-test gap (+2.6%) - best generalization.</p>
+        <p><b>Results:</b> Accuracy 0.7656, F1 0.8410, ROC-AUC 0.7987. Smallest train-test gap (+2.6%) — best generalization.</p>
         <p><b>Challenge:</b> Prone to overfitting on 5,000+ features. Solved by constraining max_depth and min_samples_leaf via grid search.</p>
  
-        <h3>3.2 Support Vector Machine (Linear SVM) - Best Model</h3>
+        <h3>3.2 Support Vector Machine (Linear SVM) — Best Model</h3>
         <p><b>Why chosen:</b> State-of-the-art for text classification. Excels in high-dimensional sparse TF-IDF space. Margin maximization provides robustness against noisy text.</p>
         <p><b>Assumptions:</b> Data is approximately linearly separable in feature space. Requires scaled input. Regularization C controls bias-variance trade-off.</p>
         <p><b>Hyperparameter tuning:</b> GridSearchCV over C [0.01, 0.1, 0.5, 1, 5, 10]. LinearSVC used for efficiency.</p>
@@ -127,14 +128,14 @@
         <p><b>Why chosen:</b> Non-parametric, zero distributional assumptions. Cosine distance is a natural fit for document vectors.</p>
         <p><b>Assumptions:</b> Similar documents in TF-IDF space share the same label. Sensitive to feature scale.</p>
         <p><b>Hyperparameter tuning:</b> GridSearchCV over n_neighbors [3,5,7,11,15,21], weights [uniform, distance], metric [cosine, euclidean].</p>
-        <p><b>Results:</b> Accuracy 0.7683, F1 0.8363, ROC-AUC 0.8292. Train accuracy 1.0 - severe overfitting (gap +23.2%).</p>
+        <p><b>Results:</b> Accuracy 0.7683, F1 0.8363, ROC-AUC 0.8292. Train accuracy 1.0 — severe overfitting (gap +23.2%).</p>
         <p><b>Challenge:</b> Curse of dimensionality in 5,000+ feature space. Cosine metric partially mitigated this, but k-NN fundamentally memorizes training data.</p>
  
         <h3>3.4 Multinomial Naive Bayes</h3>
         <p><b>Why chosen:</b> Gold-standard text classification baseline. Fast, probabilistic, and log-probability ratios reveal top stress words directly.</p>
-        <p><b>Assumptions:</b> Conditional independence of features given the class. Requires non-negative features - TF-IDF-only matrix used.</p>
+        <p><b>Assumptions:</b> Conditional independence of features given the class. Requires non-negative features — TF-IDF-only matrix used.</p>
         <p><b>Hyperparameter tuning:</b> GridSearchCV over alpha (Laplace smoothing) [0.001, 0.01, 0.05, 0.1, 0.5, 1.0, 2.0, 5.0].</p>
-        <p><b>Results:</b> Accuracy 0.7937, F1 0.8601, ROC-AUC 0.8736. Highest recall (0.9104) - catches 91% of stressed posts. Moderate overfit gap (+10.4%).</p>
+        <p><b>Results:</b> Accuracy 0.7937, F1 0.8601, ROC-AUC 0.8736. Highest recall (0.9104) — catches 91% of stressed posts. Moderate overfit gap (+10.4%).</p>
         <p><b>Challenge:</b> Cannot use StandardScaler outputs (negative values). Solved using a separate TF-IDF-only feature matrix.</p>
  
         <h3>Performance Summary</h3>
@@ -149,13 +150,13 @@
         <h3>Visualizations</h3>
         <h4>Sentiment Distribution &amp; Emotion Word Counts</h4>
         <img src="images/fig1_sentiment_emotion.png" alt="Sentiment and emotion">
-        <h4>Decision Tree - Top 25 Feature Importances</h4>
+        <h4>Decision Tree — Top 25 Feature Importances</h4>
         <img src="images/fig2_dt_feature_importance.png" alt="DT feature importance">
-        <h4>Naive Bayes - Top Discriminative Words</h4>
+        <h4>Naive Bayes — Top Discriminative Words</h4>
         <img src="images/fig3_nb_discriminative_words.png" alt="NB discriminative words">
         <h4>Model Comparison &amp; ROC Curves</h4>
         <img src="images/fig4_model_comparison_roc.png" alt="Model comparison ROC">
-        <h4>Confusion Matrices - All Four Models</h4>
+        <h4>Confusion Matrices — All Four Models</h4>
         <img src="images/fig5_confusion_matrices.png" alt="Confusion matrices">
     </div>
 </div>
@@ -166,25 +167,25 @@
     <div class="popup_content">
         <span class="close_btn" onclick="closePopup('clusteringPopup')">&times;</span>
         <h2>Clustering</h2>
-        <p>Two unsupervised clustering models - K-Means and Hierarchical Agglomerative Clustering - were applied to discover natural thematic groupings in how stress is linguistically expressed, without using labels. Feature pipeline: TF-IDF (5,000 features) → TruncatedSVD/LSA (100 components) → StandardScaler.</p>
+        <p>Two unsupervised clustering models — K-Means and Hierarchical Agglomerative Clustering — were applied to discover natural thematic groupings in how stress is linguistically expressed, without using labels. Feature pipeline: TF-IDF (5,000 features) → TruncatedSVD/LSA (100 components) → StandardScaler.</p>
  
         <h3>Model 1: K-Means Clustering</h3>
-        <p><b>Why chosen:</b> Scalable O(n×k×iter) complexity handles ~54,000 posts. Interpretable centroids map back to top TF-IDF terms per cluster. Directly answers Q3 - whether natural thematic groupings exist beyond the binary label.</p>
+        <p><b>Why chosen:</b> Scalable O(n×k×iter) complexity handles ~54,000 posts. Interpretable centroids map back to top TF-IDF terms per cluster. Directly answers Q3 — whether natural thematic groupings exist beyond the binary label.</p>
         <p><b>Assumptions:</b> Clusters are approximately spherical and equal in size (valid after StandardScaler). Euclidean distance is the proximity metric. Number of clusters k must be pre-specified.</p>
         <p><b>Hyperparameter tuning:</b> Sweep over k in [2–12] evaluating Inertia (Elbow method), Silhouette Score (maximize), and Davies-Bouldin Index (minimize). init='k-means++', n_init=20 restarts, max_iter=500. Optimal k selected by convergent evidence from Silhouette Score and Davies-Bouldin Index.</p>
         <p><b>Challenge:</b> 5,000-feature TF-IDF makes Euclidean distance meaningless (curse of dimensionality). Solved by TruncatedSVD compression to 100 LSA dimensions. Cluster interpretability addressed by back-projecting centroids to TF-IDF vocabulary for top terms per cluster.</p>
  
         <h3>Model 2: Hierarchical Agglomerative Clustering</h3>
-        <p><b>Why chosen:</b> No need to predefine k. Dendrogram reveals full merge hierarchy and natural cluster boundaries. Ward linkage minimizes within-cluster variance at each merge, producing compact clusters comparable to K-Means. Provides complementary validation - convergence with K-Means strengthens findings.</p>
-        <p><b>Assumptions:</b> Ward linkage minimizes total within-cluster SSE. Works on Euclidean distance in the scaled LSA space. Sensitive to outliers - handled upstream by IQR removal.</p>
+        <p><b>Why chosen:</b> No need to predefine k. Dendrogram reveals full merge hierarchy and natural cluster boundaries. Ward linkage minimizes within-cluster variance at each merge, producing compact clusters comparable to K-Means. Provides complementary validation — convergence with K-Means strengthens findings.</p>
+        <p><b>Assumptions:</b> Ward linkage minimizes total within-cluster SSE. Works on Euclidean distance in the scaled LSA space. Sensitive to outliers — handled upstream by IQR removal.</p>
         <p><b>Hyperparameter tuning:</b> Sweep over linkage methods (ward, complete, average) and k in {3,4,5,6,7} on a subsample of n=5,000 documents (required for O(n²) memory efficiency). Ward linkage consistently produced more balanced clusters for text data. Best configuration selected by maximum Silhouette Score.</p>
-        <p><b>Challenge:</b> O(n²) memory cost - applied on a 5,000-document subsample for tuning, sklearn's AgglomerativeClustering used for the full dataset. No centroid concept - clusters interpreted by computing mean TF-IDF weights across all member documents.</p>
+        <p><b>Challenge:</b> O(n²) memory cost — applied on a 5,000-document subsample for tuning, sklearn's AgglomerativeClustering used for the full dataset. No centroid concept — clusters interpreted by computing mean TF-IDF weights across all member documents.</p>
  
         <h3>Key Findings</h3>
         <ul>
-            <li>Both models identify stable, interpretable clusters - relationship conflict, anxiety/panic, depression/hopelessness, trauma themes.</li>
+            <li>Both models identify stable, interpretable clusters — relationship conflict, anxiety/panic, depression/hopelessness, trauma themes.</li>
             <li>High-stress clusters (stress rate >60%) dominated by: anxiety, panic, depressed, exhausted, sleep, first-person language.</li>
-            <li>r/anxiety posts concentrate in anxiety-themed clusters; r/depression in hopelessness/fatigue clusters - validating Q6 and Q11.</li>
+            <li>r/anxiety posts concentrate in anxiety-themed clusters; r/depression in hopelessness/fatigue clusters — validating Q6 and Q11.</li>
             <li>K-Means recommended as primary model for scalability and theoretical alignment with the standardized LSA feature space.</li>
         </ul>
  
@@ -201,7 +202,7 @@
         <img src="images/fig5_dendrogram.png" alt="Dendrogram">
         <h4>HC Cluster Assignments &amp; Stress Rates</h4>
         <img src="images/fig6_hc_clusters.png" alt="HC clusters">
-        <h4>K-Means vs. Hierarchical - Silhouette &amp; Davies-Bouldin Comparison</h4>
+        <h4>K-Means vs. Hierarchical — Silhouette &amp; Davies-Bouldin Comparison</h4>
         <img src="images/fig7_model_comparison.png" alt="Clustering model comparison">
     </div>
 </div>
@@ -212,20 +213,20 @@
     <div class="popup_content">
         <span class="close_btn" onclick="closePopup('regressionPopup')">&times;</span>
         <h2>Regression</h2>
-        <p>Two regression models were applied to predict stress probability in Reddit posts using a hybrid feature matrix combining TF-IDF (5,000 text features) and 5 engineered numerical features - 5,005 features total. Dataset is highly imbalanced (~90% stressed).</p>
+        <p>Two regression models were applied to predict stress probability in Reddit posts using a hybrid feature matrix combining TF-IDF (5,000 text features) and 5 engineered numerical features — 5,005 features total. Dataset is highly imbalanced (~90% stressed).</p>
  
         <h3>Model 1: Logistic Regression</h3>
-        <p><b>Why chosen:</b> Suitable for binary targets with native probability output via predict_proba(). Works well with high-dimensional sparse TF-IDF. Interpretable - coefficients directly reveal which words drive stress predictions. Handles class imbalance via class_weight='balanced'.</p>
-        <p><b>Assumptions:</b> Linear relationship between features and log-odds. Independent observations - each Reddit post treated independently.</p>
+        <p><b>Why chosen:</b> Suitable for binary targets with native probability output via predict_proba(). Works well with high-dimensional sparse TF-IDF. Interpretable — coefficients directly reveal which words drive stress predictions. Handles class imbalance via class_weight='balanced'.</p>
+        <p><b>Assumptions:</b> Linear relationship between features and log-odds. Independent observations — each Reddit post treated independently.</p>
         <p><b>Hyperparameter tuning:</b> GridSearchCV (5-fold CV) over C {0.1, 1, 10} with class_weight='balanced' and max_iter=2,000. Best: C=10.</p>
-        <p><b>Results:</b> RMSE 0.2183, MSE 0.0477, R² 0.4452. Predicted mean 0.854 vs. actual mean 0.905 - slight underprediction of stress due to class imbalance.</p>
+        <p><b>Results:</b> RMSE 0.2183, MSE 0.0477, R² 0.4452. Predicted mean 0.854 vs. actual mean 0.905 — slight underprediction of stress due to class imbalance.</p>
         <p><b>Top stress-positive features:</b> deleted (29.74), depression (22.99), bipolar (14.85), suicidal (11.01), kill (10.62).</p>
  
         <h3>Model 2: Ridge Regression</h3>
         <p><b>Why chosen:</b> Handles high-dimensional data better than standard linear regression. L2 regularization prevents overfitting in the 5,005-feature space. Provides a regularized linear baseline for comparison with Logistic Regression.</p>
-        <p><b>Assumptions:</b> Linear relationship between features and continuous target. Feature scaling required - StandardScaler applied before combining with TF-IDF.</p>
+        <p><b>Assumptions:</b> Linear relationship between features and continuous target. Feature scaling required — StandardScaler applied before combining with TF-IDF.</p>
         <p><b>Hyperparameter tuning:</b> GridSearchCV (5-fold CV) over alpha {0.1, 1, 10}. Best: alpha=0.1. Predicted values clipped to [0,1] to enforce valid probability bounds.</p>
-        <p><b>Results:</b> RMSE 0.2125, MSE 0.0451, R² 0.4747 - better numerical performance than Logistic Regression across all metrics.</p>
+        <p><b>Results:</b> RMSE 0.2125, MSE 0.0451, R² 0.4747 — better numerical performance than Logistic Regression across all metrics.</p>
  
         <h3>Model Comparison</h3>
         <table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse; width:100%; font-size:13px;">
@@ -250,7 +251,7 @@
         <h3>Visualizations</h3>
         <h4>Model Comparison by RMSE</h4>
         <img src="images/reg_fig31.png" alt="Regression RMSE comparison">
-        <h4>Logistic Regression - Actual vs. Predicted Probability</h4>
+        <h4>Logistic Regression — Actual vs. Predicted Probability</h4>
         <img src="images/reg_fig32.png" alt="Logistic regression scatter">
     </div>
 </div>
