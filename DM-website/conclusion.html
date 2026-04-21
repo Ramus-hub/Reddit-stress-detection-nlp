@@ -33,7 +33,7 @@
 <h2><b>Conclusion &amp; Results</b></h2>
 
 <p>
-A summary of what we built, what we found, and what it means — explained in simple terms.
+A summary of what we built, what we found, and what it means - explained in simple terms.
 Please click on each section to explore further.
 </p>
 
@@ -75,7 +75,7 @@ Please click on each section to explore further.
 <h2>Summary</h2>
 
 <p>
-We built a system that reads Reddit posts and tries to figure out whether the person writing it is stressed or not — just from their words. Think of it like teaching a computer to read between the lines of what people post online and detect if they're going through a tough time.
+We built a system that reads Reddit posts and tries to figure out whether the person writing it is stressed or not - just from their words. Think of it like teaching a computer to read between the lines of what people post online and detect if they're going through a tough time.
 </p>
 
 <p>
@@ -83,10 +83,10 @@ We analyzed <b>57,640 Reddit posts</b> using four different types of machine lea
 </p>
 
 <ul>
-<li><b>Classification</b> — Decision Tree, Linear SVM, k-NN, Naïve Bayes</li>
-<li><b>Regression</b> — Logistic Regression, Ridge Regression</li>
-<li><b>Clustering</b> — K-Means, Hierarchical Agglomerative Clustering</li>
-<li><b>Frequent Pattern Mining</b> — FP-Growth</li>
+<li><b>Classification</b> - Decision Tree, Linear SVM, k-NN, Naïve Bayes</li>
+<li><b>Regression</b> - Logistic Regression, Ridge Regression</li>
+<li><b>Clustering</b> - K-Means, Hierarchical Agglomerative Clustering</li>
+<li><b>Frequent Pattern Mining</b> - FP-Growth</li>
 </ul>
 
 <p>
@@ -108,21 +108,21 @@ Text features were extracted using TF-IDF, VADER sentiment scores, emotion word 
 
 <h2>Key Findings</h2>
 
-<p><b>Yes, stress can be detected from text — and fairly well.</b><br>
+<p><b>Yes, stress can be detected from text - and fairly well.</b><br>
 Our best model (Linear SVM) correctly identified stressed posts about <b>87% of the time</b> (F1 = 0.868, AUC = 0.883). That's a solid result for something as subtle as mental stress.</p>
 
 <p><b>Stressed people write differently.</b> Across every method we tried, the same patterns kept showing up:</p>
 <ul>
 <li>They use more words like <i>"anxious," "hopeless," "terrified"</i></li>
-<li>They mention physical symptoms — <i>"tired," "can't sleep," "headache"</i></li>
+<li>They mention physical symptoms - <i>"tired," "can't sleep," "headache"</i></li>
 <li>They use <b>"I/me/my" twice as often</b> as non-stressed users</li>
-<li>They ask for help more — <i>"need advice," "please help," "diagnosed"</i></li>
+<li>They ask for help more - <i>"need advice," "please help," "diagnosed"</i></li>
 <li>They're more likely to talk about relationships, breakups, and family conflict</li>
 </ul>
 
-<p><b>Stress isn't one-size-fits-all.</b> Our clustering analysis revealed stress shows up in distinct flavors — anxiety, depression, relationship problems, sleep issues, and work/academic pressure. Different Reddit communities (r/anxiety, r/depression, r/ptsd) each gravitated toward their own type.</p>
+<p><b>Stress isn't one-size-fits-all.</b> Our clustering analysis revealed stress shows up in distinct flavors - anxiety, depression, relationship problems, sleep issues, and work/academic pressure. Different Reddit communities (r/anxiety, r/depression, r/ptsd) each gravitated toward their own type.</p>
 
-<p><b>Word combinations beat single words.</b> When we looked at phrases people use together (like <i>"I feel like," "I don't know"</i>) using FP-Growth, and combined those patterns with our text analysis, accuracy jumped to <b>AUC = 0.968</b> — our best result overall.</p>
+<p><b>Word combinations beat single words.</b> When we looked at phrases people use together (like <i>"I feel like," "I don't know"</i>) using FP-Growth, and combined those patterns with our text analysis, accuracy jumped to <b>AUC = 0.968</b> - our best result overall.</p>
 
 <p><b>All four model types agreed.</b> Classification, regression, clustering, and pattern mining all independently pointed to the same five categories of stress language: emotional distress vocabulary, physical symptom mentions, self-referential language, relationship content, and help-seeking behaviour. This cross-model agreement gives strong confidence that these are genuine signals, not coincidences.</p>
 
@@ -143,11 +143,11 @@ Our best model (Linear SVM) correctly identified stressed posts about <b>87% of 
 
 <p>This kind of tool has genuine potential value across several areas:</p>
 
-<p><b>For mental health researchers</b> — it can scan thousands of posts to study how stress spreads or spikes (e.g., during a pandemic or major life event) at a scale no human team could manage.</p>
+<p><b>For mental health researchers</b> - it can scan thousands of posts to study how stress spreads or spikes (e.g., during a pandemic or major life event) at a scale no human team could manage.</p>
 
-<p><b>For platform designers</b> — Reddit or similar platforms could use stress signals to surface mental health resources to users who might need them, without waiting for the user to search for help themselves.</p>
+<p><b>For platform designers</b> - Reddit or similar platforms could use stress signals to surface mental health resources to users who might need them, without waiting for the user to search for help themselves.</p>
 
-<p><b>For early intervention</b> — catching early signs of distress in public posts could help connect people to support before things escalate into a crisis.</p>
+<p><b>For early intervention</b> - catching early signs of distress in public posts could help connect people to support before things escalate into a crisis.</p>
 
 <p>That said, this is a <b>research tool, not a clinical one</b>. Flagging someone as stressed based on a Reddit post is not the same as a diagnosis, and the ethical bar for real-world deployment is much higher than what we've demonstrated here. Any real-world use must carefully consider consent, false positive harm, and algorithmic bias in mental health contexts.</p>
 
@@ -168,9 +168,9 @@ Our best model (Linear SVM) correctly identified stressed posts about <b>87% of 
 
 <p>There are a few honest caveats worth calling out:</p>
 
-<p><b>Reddit isn't everyone.</b> The data skews toward younger, English-speaking users. Stress looks different across cultures, languages, and platforms — our models may not generalise well outside Reddit.</p>
+<p><b>Reddit isn't everyone.</b> The data skews toward younger, English-speaking users. Stress looks different across cultures, languages, and platforms - our models may not generalise well outside Reddit.</p>
 
-<p><b>Labels aren't perfect.</b> We labeled posts as "stressed" based on which subreddit they came from. But not every post in r/anxiety is someone who's currently struggling — some are informational, supportive, or recovery-focused. This introduces noise into the training data.</p>
+<p><b>Labels aren't perfect.</b> We labeled posts as "stressed" based on which subreddit they came from. But not every post in r/anxiety is someone who's currently struggling - some are informational, supportive, or recovery-focused. This introduces noise into the training data.</p>
 
 <p><b>The model can't detect sarcasm.</b> Reddit culture is heavily sarcastic, and our bag-of-words models sometimes misread jokes or ironic posts as genuine distress. This was one of the top failure modes identified in our error analysis.</p>
 
@@ -197,15 +197,15 @@ Our best model (Linear SVM) correctly identified stressed posts about <b>87% of 
 
 <p>A few directions that could make this significantly better:</p>
 
-<p><b>Use transformer models (BERT/RoBERTa)</b> — these understand context, tone, and sarcasm in ways our current word-count approach can't. Fine-tuning on Reddit mental health data would likely push accuracy substantially higher.</p>
+<p><b>Use transformer models (BERT/RoBERTa)</b> - these understand context, tone, and sarcasm in ways our current word-count approach can't. Fine-tuning on Reddit mental health data would likely push accuracy substantially higher.</p>
 
-<p><b>Move from binary to multi-level labels</b> — mild / moderate / severe would give much more useful output for real-world applications and enable genuine stress intensity estimation rather than just a yes/no label.</p>
+<p><b>Move from binary to multi-level labels</b> - mild / moderate / severe would give much more useful output for real-world applications and enable genuine stress intensity estimation rather than just a yes/no label.</p>
 
-<p><b>Track users over time</b> — watching how someone's language changes across weeks or months could reveal escalating distress before a crisis point. Longitudinal analysis could uncover stress trajectories and early warning signals.</p>
+<p><b>Track users over time</b> - watching how someone's language changes across weeks or months could reveal escalating distress before a crisis point. Longitudinal analysis could uncover stress trajectories and early warning signals.</p>
 
-<p><b>Test on other platforms</b> — validating on Twitter, clinical datasets, or crisis helpline transcripts would tell us how well this generalises beyond Reddit's specific culture and user base.</p>
+<p><b>Test on other platforms</b> - validating on Twitter, clinical datasets, or crisis helpline transcripts would tell us how well this generalises beyond Reddit's specific culture and user base.</p>
 
-<p><b>Build subreddit-specific models</b> — our analysis showed significant accuracy variation across communities. Community-specific models or domain adaptation could improve performance for ambiguous subreddits.</p>
+<p><b>Build subreddit-specific models</b> - our analysis showed significant accuracy variation across communities. Community-specific models or domain adaptation could improve performance for ambiguous subreddits.</p>
 
 </div>
 
